@@ -1,2 +1,2 @@
-# react-todo-board
+# TODO list
 Drag cards between lists... Under development...
