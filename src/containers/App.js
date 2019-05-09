@@ -87,7 +87,8 @@ class App extends Component {
     this.setState({ [status]: tempArray })
   }
 
-  moveStatusTaskHandler = (index, status, leftOrRight) => {
+  moveStatusTaskHandler = (index, status, leftOrRight, dragResult, newIndex) => {
+
     // Remember always to create a new copy of the array
     let tempArray = [...this.state[status]];
 
@@ -96,23 +97,59 @@ class App extends Component {
 
     //leftOrRight could be "right" or "left"
     const statusList = this.listOfCategories
-    const newColumnStatus = leftOrRight === 'right' ?
-      statusList[statusList.indexOf(status) + 1] :
-      statusList[statusList.indexOf(status) - 1];
-
+    let newColumnStatus
+    if (leftOrRight) {
+      newColumnStatus = leftOrRight === 'right' ?
+        statusList[statusList.indexOf(status) + 1] :
+        statusList[statusList.indexOf(status) - 1];
+    }
+    if (dragResult) {
+      newColumnStatus = dragResult
+    }
     //add to x-status
-    this.setState({
-      [status]: tempArray,
-      [newColumnStatus]: [...this.state[newColumnStatus], removedArray[0]]
-    });
+    if (status == dragResult) {
+      const newArr = this.placeElementinArray(this.state[status],
+        this.state[status].slice(index)[0],
+        newIndex)
+
+      this.setState({ [status]: newArr })
+
+    } else {
+      this.setState({
+        [status]: tempArray,
+        [newColumnStatus]: [...this.state[newColumnStatus], removedArray[0]]
+      });
+    }
+
+  }
+
+  placeElementinArray = (arr, elem, index) => {
+
+    const filteredArr = arr.filter(el => el.id !== elem.id);
+    const arrStartIndex = 0
+    const arrEndIndex = arr.length - 1
+
+    if (typeof index != 'number') {
+      return filteredArr
+    } else if (index === arrStartIndex) {
+      return [elem, ...filteredArr]
+    } else if (index === arrEndIndex) {
+      return [...filteredArr, elem]
+    } else {
+      return [...filteredArr.slice(arrStartIndex, index), elem, ...filteredArr.slice(index)]
+    }
   }
 
   selectTaskHandler = (id, status) => {
     console.log('Selected!', id, status)
   }
 
-  onDragEnd = result => {
-    console.log(result)
+  onDragEnd = (result) => {
+    this.moveStatusTaskHandler(result.source.index,
+      result.source.droppableId,
+      null,
+      result.destination.droppableId,
+      result.destination.index)
   }
 
   render() {
