@@ -9,6 +9,6 @@ deploy:
   provider: heroku
   api_key:
     secure: "dMH+mvIIrZtUaJDtbLNyYsjz5LuJ22DeDCbcKUl3N9xaYGeC78br7X+jBvSYaKjiJVnRuFmPWcpZRuJs43qQ9SL3etHwf743m/g+u6bErwRmVrVszuz2o9l2Le3HwW+WZeLCEfUtz0nayDsw3GMezi7kGu8rNBC+JIYMdsG59PW3oMa91Ok9GAera/ic0Avg/LCuoBv9bNwnpqawAA/+XCJ+jO9GHIPETUebER5y6oOuBfkTWX8LvjSYAmvXwzsXQZZonl+VUjLs+ZQvYufSxYX2OrTDTyRul+nb4aneUKMCbwO/8OfN8CsCxSREE/0//BF1qdc7WEQcsQNLY4i1dt0Cw7QrwcCFKiHG7tGo2aqb0g4BtnJ1iBUYrQVKtHf2oiCoeNnQ1LPQyLjqaBYPDC7tetkRVPidZzEyG1+iRgwMxHhoj4ymImtP7S4RHsyMWrSKvq1qZb4FoGxKG7GbKwzNv5A0i3JqRavvMALDI/2E8QVl1WL2L/Hwjb98K4tnXh7ZqZWuEXNYiDtw5JS6zLWBdaH/KqbCfJNp/AX9znq7YDdrVNkIfw0+4Kb8zaKPb0ybZmQqkKdv3HAWuIzNdq7mk+H2VDCh6QKee7fVr4p7WEuq9cUPI6E2uF37jZ9HEtASdzbsuXBkCQZMMoYAVxj57Pm0EYdxN0mK3E5Jt+4="
-    app: react-todo-board
+  app: react-todo-board
   on:
     repo: alpersonalwebsite/react-todo-board
