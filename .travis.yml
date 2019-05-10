@@ -5,6 +5,7 @@ sudo: false
 install: yarn install
 script:
 - echo "skipping tests"
+- yarn run build
 deploy:
   provider: heroku
   api_key:
