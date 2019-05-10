@@ -9,7 +9,7 @@ const listOfTasks = (props) => {
     <Droppable droppableId={props.status}>
       {(provided) => (
         <div {...provided.droppableProps} ref={provided.innerRef} className={styles.col}>
-          <div>{props.children}</div>
+          <div className={styles.title}>{props.children}</div>
           {props.tasks.map(({ id, title, description }, index) =>
             <Task
               statusList={props.statusList}

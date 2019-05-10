@@ -10,6 +10,12 @@
   margin: 0 10px 0 10px;
 }
 
+.title {
+  text-transform: uppercase;
+  padding: 15px 0 10px 0;
+  font-weight: bold;
+}
+
 @media (max-width: 640px) {
   .col {
     flex: 1;

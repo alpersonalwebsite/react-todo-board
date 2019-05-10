@@ -5,7 +5,9 @@ const headerNav = (props) => {
   return (
     <div className={styles.bar}>
       <input />
-      <div>Create Task</div>
+      <div>
+        <a href="#" onClick={props.toggleAddTaskForm} className={styles.myButton}>Create Task</a>
+      </div>
       <div>Filter</div>
     </div>
   )

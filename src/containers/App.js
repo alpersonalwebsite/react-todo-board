@@ -10,14 +10,17 @@ import {
   faArrowAltCircleRight,
   faArrowAltCircleLeft,
   faTrashAlt,
-  faCoffee, faAdjust
+  faCoffee,
+  faAdjust,
+  faSearch
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faArrowAltCircleRight,
   faArrowAltCircleLeft,
   faCoffee,
   faAdjust,
-  faTrashAlt)
+  faTrashAlt,
+  faSearch)
 
 /*
 I´m using solid and free 
@@ -170,7 +173,7 @@ class App extends Component {
     // Que pasa cuando borro todas por ehjemplo de todo
     let mappingTasksCategories = null;
 
-    // es necesario...? por si o borro o agrego functionalidad de borar categoria ????
+    // es necesario...? por si o borro o agrego functionalidad de borrar categoria ????
 
     if (this.state.listOfStatus) {
       mappingTasksCategories = this.listOfCategories.map((category) => {
@@ -182,55 +185,24 @@ class App extends Component {
             statusList={this.listOfCategories}
             deleteTask={this.deleteTaskHandler}
             selectTask={this.selectTaskHandler}
-            tasks={this.state[category]} > {this.state.listOfStatus[category]}
+            tasks={this.state[category]} >
+            {`${this.state.listOfStatus[category]}  ${this.state[category].length}`}
           </ ListOfTasks>
         )
       })
     }
-
-
-
     return (
       <div className="App">
         <h1>Board</h1>
-        <HeaderNav />
-        <div onClick={this.toggleAddTaskForm}>SHOW FORM missing toogling hide name: show/hide</div>
+        <HeaderNav toggleAddTaskForm={this.toggleAddTaskForm} />
         {tasksForm}
-        <div className={styles.flexGrid}>
 
+
+
+        <div className={styles.flexGrid}>
           <DragDropContext onDragEnd={this.onDragEnd}>
             {mappingTasksCategories}
           </DragDropContext>
-          {
-            //mappingTasksCategories
-            /*
-          <ListOfTasks
-            status="toDo"
-            moveStatusTask={this.moveStatusTaskHandler}
-            statusList={this.state.listOfStatus}
-            deleteTask={this.deleteTaskHandler}
-            selectTask={this.selectTaskHandler}
-            tasks={this.state.toDo}>TO DO
-          </ListOfTasks>
-
-          <ListOfTasks
-            status="inProgress"
-            moveStatusTask={this.moveStatusTaskHandler}
-            statusList={this.state.listOfStatus}
-            deleteTask={this.deleteTaskHandler}
-            selectTask={this.selectTaskHandler}
-            tasks={this.state.inProgress}>IN PROGRESS
-          </ListOfTasks>
-
-          <ListOfTasks
-            status="done"
-            moveStatusTask={this.moveStatusTaskHandler}
-            statusList={this.state.listOfStatus}
-            deleteTask={this.deleteTaskHandler}
-            selectTask={this.selectTaskHandler}
-            tasks={this.state.done}>DONE
-          </ListOfTasks>
-          */}
         </div>
       </div>
     );
