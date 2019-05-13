@@ -1,11 +1,13 @@
 language: node_js
 node_js:
 - node
+env:
+- CI=false
 sudo: false
 install: yarn install
 script:
 - echo "skipping tests"
-- process.env.CI=true yarn run build
+- yarn run build
 deploy:
   provider: heroku
   api_key:
