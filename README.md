@@ -21,6 +21,7 @@ Drag cards between lists... Under development...
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-standard": "^4.0.0"
    ```
+   We are going to do this for any current and/or future dependency in apps created wth `Create React App` that were not ejected. 
 
 For more information check: https://github.com/facebook/create-react-app/issues/2696
 
