@@ -1,8 +1,23 @@
 # TODO list
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/alpersonalwebsite/react-todo-board.svg)](https://greenkeeper.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
+URL: https://react-todo-board.herokuapp.com/
 
 Drag cards between lists... Under development...
+
+
+### Git hooks support with husky
+We are `linting` our files using `husky` to execute at the `pre-commit stage` both scripts
+1. `yarn run fix`
+2. `yarn run lint`
+In cases related to `warnings`, we can bypass the `hook` adding the flag `--no-verify ` to our "commit instructions"
+```
+git commit -m "husky skipping linting" --no-verify
+```
+
+In this case, we should ensure that our `CI/CD Tool` has the env `CI` set to `false` to prevent "failed builds".
 
 ### Notes:
 1. In `.travis.yml` we add the following `environment variable`:
@@ -11,7 +26,7 @@ Drag cards between lists... Under development...
     - CI=false
    ```
 ... since we want to AVOID treating `warnings as errors` which would result in `Failed to compile` and, in consequence, our build would fail. In most `CI servers` CI is set it to `true` by default.
-1. We set `eslint` and all `eslint` related libraries inside `dependencies` (not `devDependencies`)
+2. We set `eslint` and all `eslint` related libraries inside `dependencies` (not `devDependencies`)
    ```json
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
