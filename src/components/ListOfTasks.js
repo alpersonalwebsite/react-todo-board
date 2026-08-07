@@ -2,7 +2,6 @@ import React from 'react'
 import { Droppable } from 'react-beautiful-dnd'
 import Task from './Task'
 import styles from './ListOfTasks.module.css'
-import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
 
 const listOfTasks = (props) => {
   return (
@@ -17,6 +16,7 @@ const listOfTasks = (props) => {
               moveStatusTask={(leftOrRight) => props.moveStatusTask(index, props.status, leftOrRight)}
               deleteTask={() => props.deleteTask(index, props.status)}
               selectTask={() => props.selectTask(id, props.status)}
+              isSelected={props.selectedTask === id}
               key={id}
               id={id}
               index={index}

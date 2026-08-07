@@ -8,11 +8,11 @@ import styles from './Task.module.css'
 
 // function naming convention
 const task = (props) => {
-  const classesForTaskArr = [styles.task]
-  classesForTaskArr.push('something')
-
-  // convert to string
-  const classesForTaskString = classesForTaskArr.join(' ')
+  // Was [styles.task, 'something'], where 'something' is not a class that exists
+  // anywhere in this project: a placeholder that shipped.
+  const classesForTaskString = [styles.task, props.isSelected ? styles.selected : '']
+    .filter(Boolean)
+    .join(' ')
 
   return (
     <Draggable draggableId={props.id} index={props.index}>
@@ -23,8 +23,7 @@ const task = (props) => {
           ref={provided.innerRef}
         >
           <div className={classesForTaskString}
-            onClick={props.selectTask}
-            style={{ backgroundColor: 'lavender' }}>
+            onClick={props.selectTask}>
             <div className={styles.arrowsWidth16}
               onClick={props.deleteTask}>
               <FontAwesomeIcon icon="trash-alt" />
