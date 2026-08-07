@@ -19,8 +19,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "lint": "eslint src/**/*.js --ignore-pattern node_modules/",
-    "fix": "eslint --fix src/**/*.js --ignore-pattern node_modules/",
+    "lint": "eslint src --ext .js",
+    "fix": "eslint --fix src --ext .js",
     "build": "react-scripts build && cp build/index.html build/200.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
