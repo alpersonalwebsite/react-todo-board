@@ -4,11 +4,19 @@
   border: 1px solid #eee;
   box-shadow: 0 2px 3px #ccc;
   margin: 5px 0;
-  background: #fff;
+  /* Was an inline style={{ backgroundColor: 'lavender' }} repeated on every card, which
+     meant no card could ever look different from another. Same colour, now overridable. */
+  background: lavender;
 }
 
 /*For icons with flex grid*/
 .arrowsWidth16 {
   max-width: 16px;
   cursor: pointer;
+}
+
+/* The card the user last clicked. Previously the background colour was hardcoded as an
+   inline style on every card, so no card could ever look different from another. */
+.selected {
+  outline: 2px solid #5b3fa8;
 }

@@ -21,3 +21,16 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# env files. .env was NOT covered, only the .local variants.
+.env
+
+# secrets and local databases
+secrets/
+credentials*
+*.pem
+*.key
+*.log
+*.sqlite
+*.sqlite3
+*.db
